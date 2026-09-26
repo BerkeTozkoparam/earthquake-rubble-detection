@@ -1,0 +1,31 @@
+{
+  "task": "Earthquake rubble decision support prototype",
+  "yolo": {
+    "architecture": "YOLO11s",
+    "class_names": [
+      "Collapsed building / rubble"
+    ],
+    "image_size": 640,
+    "confidence_threshold": 0.25
+  },
+  "cnn": {
+    "architecture": "torchvision EfficientNet-B0",
+    "class_names_by_index": [
+      "clear_candidate",
+      "rubble"
+    ],
+    "tile_size": 128,
+    "stride": 64,
+    "rubble_probability_threshold": 0.8,
+    "eval_transform": "Compose(\n    Resize(size=(224, 224), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])\n)"
+  },
+  "display": {
+    "nms_iou_threshold": 0.3,
+    "note": "NMS yalnızca gösterim içindir; karar hesabında ham CNN kareleri kullanılır."
+  },
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.163"
+  }
+}

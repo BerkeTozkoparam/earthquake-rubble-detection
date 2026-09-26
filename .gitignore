@@ -1,0 +1,22 @@
+# Model files (too large)
+*.pt
+*.pth
+
+# Audit logs
+audit_logs/
+__pycache__/
+*.pyc
+
+# Test files
+test_*.jpg
+test_*.png
+
+# Environment
+.env
+.venv
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
